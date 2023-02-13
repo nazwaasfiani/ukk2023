@@ -60,11 +60,15 @@ if(!isset($_SESSION['nama_lengkap'])){
               <div class="mb-3 mt-3 text-center">
                 username : 
                 <input class="rounded-3 border-light" type="text" name="username" style="width: 400px;">
-              </div>
+                </div>
               <div class="mb-3 mt-3 text-center">
                 password: 
                 <input class="rounded-3 border-light" type="password" name="password" style="width: 400px;">
                  </div>
+                 <div class="mb-3 mt-3 text-center">
+                telp: 
+                <input class="rounded-3 border-light" type="nomer" name="telp" style="width: 400px;">
+              </div>
               <div class="text-center mt-3"> 
                 <button type="submit" class="btn btn-success px-3 mb-3" style="width: 100px;">Isi Data</button> 
                 </div>

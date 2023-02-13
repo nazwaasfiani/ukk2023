@@ -12,7 +12,7 @@ $data=$query->fetch();
 if($query->rowCount()>0){
     $_SESSION['username']=$_POST['username'];
     $_SESSION['password']=$_POST['password'];
-    header('location:home.php');
+    
     }else{
         header("location:loginf.php");
     }

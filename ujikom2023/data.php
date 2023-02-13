@@ -9,10 +9,8 @@ $password=$_POST['password'];
 $telp=$_POST['telp'];
 
 
-
-
 $db = new PDO("mysql:host=localhost;dbname=pengaduanmasyarakat","root","");
-$query = $db->query("INSERT INTO `masyarakat` VALUES ('$nik','$nama','$username','$password','telp')");
+$query = $db->query("INSERT INTO `masyarakat` VALUES ('$nik','$nama','$username','$password','$telp')");
 
  if($query){
     header ("location:masyarakat.php");

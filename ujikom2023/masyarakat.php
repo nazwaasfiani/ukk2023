@@ -6,7 +6,7 @@ $db = mysqli_connect("localhost","root","","pengaduanmasyarakat");
 
 $result = mysqli_query($db, "SELECT * FROM masyarakat");
 
-//if(isset($_GET['caper'])){
+//if(isset($_GbvcxvcxvbnET['caper'])){
  // $urut = $_GET['caper'];
   //$result =mysqli_query($db,"SELECT * FROM catatan_perjalanan ORDER BY $urut ASC");
    //}
@@ -32,11 +32,9 @@ $result = mysqli_query($db, "SELECT * FROM masyarakat");
         <a class="nav-link text-dark" href="home.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="masyarakat.php">data masyarakat</a>
+        <a class="nav-link text-dark" href="masyarakat.php">isi_laporan</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark" href="isi_data.php">Isi Data</a>
-      </li>
+     
       <li class="nav-item">
         <a class="nav-link text-dark" href="logout.php" onclick="return confirm('anda yakin ingin keluar')"> keluar</a>
       </li>
@@ -48,8 +46,7 @@ $result = mysqli_query($db, "SELECT * FROM masyarakat");
         <div class="row fw-bold card">
             <div class="row g-2 align-items-center px-3 mb-3">
                 <div class="col-auto">
-                <span class="text-black">Urutkan Berdasarkan</span>
-             </div>
+                
              <form>
              <div class="col-auto">
                   <select name="caper" class="form-control" style="width:100px" id="">
@@ -59,7 +56,7 @@ $result = mysqli_query($db, "SELECT * FROM masyarakat");
                     <option value="password">password</option>
                     <option value="telp">telp</option>
                   </select>
-                  <button type="submit" class="btn btn-primary">urut</button>
+                  
                 </div>
               </div>
           </from>

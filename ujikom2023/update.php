@@ -1,17 +1,16 @@
 <?php
-
-session_start();
-
+include "koneksi.php";
+$id= $_GET['id_pengaduan'];
+$tgl_pengaduan = $_POST['tgl_pengaduan'];
 $nik = $_POST['nik'];
-$nama = $_POST['nama'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$telp= $_POST['telp'];
+$isi_laporan = $_POST['isi_laporan'];
+$foto = $_POST['foto'];
+$status = $_POST['status'];
 
-$db = new PDO("mysql:host=localhost;dbname=pengaduanmasyarakat",'root','');
-$query = $db->query("UPDATE `masyarakat` SET `nik`='$nik',`nama`='$nama',
-`username`='$username',`password`='$password',`telp`='telp' WHERE `nik`='$nik'");
- 
+$koneksi= new PDO("mysql:host=localhost;dbname=pengaduanmasyarakat","root","");
+$query = $koneksi->query("UPDATE `pengaduan` SET `id_pengaduan`='$id_pengaduan',`tgl_pengaduan`='tgl_pengaduan',
+`nik`='$nik',`isi_laporan`='$isi_laporan',`foto`='$foto',`status`='$status' WHERE`id_pengaduan`='$id'");
+
 if($query){
-header ("location:masyarakat.php");
+    header("Location:masyarakat.php");
 }

@@ -2,10 +2,10 @@
 
 session_start();
 
-$db = mysqli_connect("localhost","root","","pengaduanmasyarakat");
-$nik=$_SESSION["nik"];
-$result = mysqli_query($db, "SELECT * FROM pengaduan where nik='$nik'");
-
+$db =new PDO("mysql:host=localhost;dbname=pengaduanmasyarakat",'root','');
+$id =$_GET['id_pengaduan']; 
+$query = $db->query("SELECT * FROM `pengaduan` WHERE `id_pengaduan`='$id'");
+$data = $query->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan where nik='$nik'");
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills">
       <li class="nav-item">
-        <a class="nav-link text-dark" href="home_masyarakat.php">Home</a>
+        <a class="nav-link text-dark" href="home.php">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="masyarakat.php">isi_laporan</a>
@@ -47,7 +47,7 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan where nik='$nik'");
                 
              <form>
              <div class="col-auto">
-                  <select name="pengaduan masyarakat" class="form-control" style="width:100px" id="">                 
+                  <select name="ppm" class="form-control" style="width:100px" id="">                 
                     <option value="tanggal">tgl_pengaduan</option>                    
                     <option value="isi_laporan">isi_laporan</option>
                     <option value="foto">foto</option>
@@ -69,11 +69,10 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan where nik='$nik'");
       <th scope="col">tgl_pengaduan</th>
       <th scope="col">isi_laporan</th>
       <th scope="col">foto</th>
-      <th scope="col">aksi</th>
     </tr>
   </thead>
   <?php $no=1;?>
-  <?php while($row = mysqli_fetch_assoc($result)):?>
+ <?php foreach ($data as $row){?>
   <tbody>
     <tr class="text-center">
       <th scope="row"><?= $no;?></th>
@@ -81,16 +80,33 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan where nik='$nik'");
       <td><?=$row['isi_laporan'];?></td>
       <td><img src="<?=$row['foto'];?>" width="100" height="100"/></td>
        <td>
-       <a href="detail.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-success ml-auto">detail</a>
-        <a href="from_update.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-success ml-auto">Update</a>
-      <a href="delete.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-danger ml-auto">hapus</a>
+
     </td>
     </tr>
     </tbody>
     <?php $no++ ?>
-    <?php endwhile ?>
+    <?php } ?>
     </table>
+    <hr>
+    <h2>tanggapan</h2>
+     <div class="">
+        <?php
+        $query = $db->query("SELECT * FROM tanggapan WHERE id_pengaduan='$id'");
+        
+        $data = $query->fetchAll();
+      
+        foreach ($data as $data):
+            // var_dump($data);
+            // die();
+        ?>
+    <h3><?= $data['id_petugas'] ?></h3>
+    <div class="text-tanggapan">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, nulla debitis
+         dignissimos praesentium maxime nihil quo repudiandae impedit perferendis? Nobis ipsam tenetur sequi 
+        quisquam provident assumenda molestias aut, repellat eaque!
+
+
     </div>
+    <?php endforeach ?>
     </div>
     <div class="text-end">
     <a href="isi_data.php" class="btn btn-primary">

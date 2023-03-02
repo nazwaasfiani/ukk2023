@@ -1,6 +1,6 @@
 <?php
 session_start();
-header ("location:home.php");
+header ("location:home_masyarakat.php");
 ?>
 
 <!DOCTYPE html>

@@ -22,7 +22,7 @@ session_start();
           <span class="h3 fw-bold mb-0">PELAPORAN PENGADUAN MASYARAKAT</span>
         </div>
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-2 pt-5 pt-xl-0 mt-xl-n5">
-          <form action="home.php" method="post" style="width: 23rem;">
+          <form action="from_register.php" method="post" style="width: 23rem;">
 
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">R E G I S T E R</h3>
 

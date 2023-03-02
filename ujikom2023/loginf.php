@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +21,7 @@ session_start();
           <span class="h1 fw-bold mb-0">PENGADUAN MASYARAKAT</span>
         </div>
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-2 pt-5 pt-xl-0 mt-xl-n5">
-          <form action="home.php" method="post" style="width: 23rem;">
+          <form action="login.php" method="post" style="width: 23rem;">
 
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login</h3>
 
